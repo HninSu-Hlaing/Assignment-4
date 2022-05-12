@@ -2,25 +2,24 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-10 mx-md-auto">
-      <h1>User List</h1>
+      <h1>Post List</h1>
       <br>
 
-      <%= link_to 'Create User', new_user_path ,class: 'btn btn-primary btn-sm mb-3' ,
-      data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote:true}%>
+      <%= link_to 'Create Post', new_post_path ,class: 'btn btn-primary btn-sm mb-3' ,
+      data: { bs_toggle: 'modal', bs_target: '#newPostModal', remote:true}%>
 
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
+            <th>Title</th>
+            <th>Description</th>
             <th>Operation</th>
           </tr>
         </thead>
 
-        <tbody id="usersTable">
-          <% @users.each do |user| %>
-            <%= render 'user_row' , user: user %>
+        <tbody id="postsTable">
+          <% @posts.each do |post| %>
+            <%= render 'post_row' , post: post %>
           <% end %>
         </tbody>
       </table>
@@ -29,40 +28,40 @@
   </div>
 </div>
 
-<div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
+<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newUserModalLabel">Create New User</h5>
+        <h5 class="modal-title" id="newPostModalLabel">Create New Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div id="newUserForm">
+      <div id="newPostForm">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+<div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+        <h5 class="modal-title" id="editPostModalLabel">Edit Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div id="editUserForm">
+      <div id="editPostForm">
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="showUserModal" tabindex="-1" aria-labelledby="showUserModalLabel" aria-hidden="true">
+<div class="modal fade" id="showPostModal" tabindex="-1" aria-labelledby="showPostModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="showUserModalLabel">User Details</h5>
+        <h5 class="modal-title" id="showPostModalLabel">Post Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div id="showUserDetails">
+      <div id="showPostDetails">
       </div>
     </div>
   </div>

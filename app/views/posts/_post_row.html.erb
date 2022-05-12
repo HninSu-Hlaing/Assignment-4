@@ -1,0 +1,18 @@
+<tr id="postRow_<%= post.id %>">
+  <td><%= post.title %></td>
+  <td><%= post.description %></td>
+  <td>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Action
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= link_to 'Show', post ,class: 'dropdown-item',
+        data: { bs_toggle: 'modal',bs_target: '#showPostModal', remote: true} %></li>
+        <li><%= link_to 'Edit', edit_post_path(post) ,class: 'dropdown-item' ,
+        data: { bs_toggle: 'modal',bs_target: '#editPostModal', remote: true}%></li>
+        <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'dropdown-item' , remote: true %></li>
+    </ul>
+    </div>
+  </td>
+</tr>

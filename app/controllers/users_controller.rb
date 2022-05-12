@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = UsersService.index
   end
 
   # GET /users/1 or /users/1.json
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = UsersService.new
   end
 
   # GET /users/1/edit
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    @user = UsersService.createUser(user_params)
 
     respond_to do |format|
       if @user.save
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy
+    UsersService.delete(params[:id])
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
