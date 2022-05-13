@@ -25,9 +25,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.js
+        UserMailer.user_send(@user).deliver_now
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
+        format.js
       else
         format.js
         format.html { render :new, status: :unprocessable_entity }
@@ -56,6 +57,7 @@ class UsersController < ApplicationController
     UsersService.delete(params[:id])
 
     respond_to do |format|
+      UserMailer.user_delete(@user).deliver_now
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
       format.js

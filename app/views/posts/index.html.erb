@@ -4,10 +4,15 @@
     <div class="col-lg-10 mx-md-auto">
       <h1 class="display-4">Post List</h1>
       <br>
-
-      <%= link_to 'Create Post', new_post_path ,class: 'btn btn-primary btn-sm mb-3' ,
-      data: { bs_toggle: 'modal', bs_target: '#newPostModal', remote:true}%>
-
+      <div class="row">
+        <div class="col-lg-10 mx-md-auto">
+          <%= link_to 'Create Post', new_post_path ,class: 'btn btn-primary btn-sm mb-3' ,
+          data: { bs_toggle: 'modal', bs_target: '#newPostModal', remote:true}%>
+        </div>
+        <div class="col-lg-2 mx-md-auto">
+          <%= link_to "Send List", posts_path , class: "btn btn-primary btn-sm" %>
+        </div>
+      </div>
       <table class="table table-bordered">
         <thead>
           <tr>

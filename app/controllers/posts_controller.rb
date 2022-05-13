@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = PostsService.index
+    PostMailer.post_list(current_user.email,@posts).deliver_now
   end
 
   # GET /posts/1 or /posts/1.json
